@@ -1,44 +1,36 @@
-from Finanzas import finanzaaa
-from Ingresos import Ingreso
-from Egresos import Egreso
+from Finanzas import finanzaaa, Ingresos, Egresos
+ 
 
-IngreObj = Ingreso()
-EgreObj = Egreso()
+IngreObj = Ingresos()
+EgreObj = Egresos()
 FinanObj = finanzaaa()
 
 def CrearProyectoFinanzas ():
-        print("**Crear un nuevo proyecto de finanzas**")
-        Nombre = input("Ingrese el propietario del proyecto:")
-        FinanObj.CrearCuenta(Nombre)
+       
+        FinanObj.CrearCuenta()
         
 
 def RealizaIngreso():
-        pass
+        IngreObj.NewMonto()
+        
 
 def RealizaEgreso():
-        pass
+       EgreObj.NewEgr()
+
 
 def ShowIngresos():
-        ingresos = IngreObj.GetAllIngresos()
-        if len(ingresos)>0:
-                pass
-        else  :
-           print("**No se han efectuado ingresos al proyecto**")
+        IngreObj.AllIngresos()
 
 def ShowEgresos():
-       egresos = EgreObj.GetAllEgresos()
-       if len(egresos)>0:
-               pass
-       else:
-                print("**No se han efecuado egresos en este proyecto")
+       EgreObj.AllEgresos()
 
 def ShowAllOperations():
-       operaciones = [IngreObj.GetAllIngresos , EgreObj.GetAllEgresos]
-       if len(operaciones)>0:
-               for operacion in operaciones:
-                       print(operacion)
-       else:
-                print("\n**No se han realizado operaciones en este proyecto de finanzas**\n")
+       print("\n")
+       print("Los ingresos que se han realizado son: ")
+       IngreObj.AllIngresos()
+       print("Los egresos que se han realizado son: ")
+       EgreObj.AllEgresos()
+       print("\n")
 
 
 def ShowMonto():
@@ -59,15 +51,27 @@ while True:
     opcion = input("Opcion : ")
     
     if opcion == "0":
+         
           break
     elif opcion == "1":
          CrearProyectoFinanzas()
-        
+    elif opcion == "2":
+            RealizaIngreso()
+    elif opcion == "3":
+            RealizaEgreso()        
     elif opcion  == "4":
+            print("Los ingresos realizados son:")
             ShowIngresos()
+            print("\n")
     elif opcion == "5":
+            print("Los egresos realizados son: ")
             ShowEgresos()
+            print("\n")
+
     elif opcion == "6":
             ShowAllOperations()
+    elif opcion == "7":
+            pass
+    
 
     
